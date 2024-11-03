@@ -10,10 +10,10 @@ services:
     environment:
       MYSQL_HOST: localhost
       MYSQL_PORT: 3306
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: AVeryComplicatedPassword
       MYSQL_DATABASE: leaderboard
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
+      MYSQL_USER: leaderboard
+      MYSQL_PASSWORD: AVeryComplicatedPassword
     networks:
       leaderboard_network:
         aliases:
@@ -26,16 +26,16 @@ services:
       - 4001:4001
     depends_on:
       - db
-    networks:
-      leaderboard_network:
-        aliases:
-          - leaderboard
     environment:
       LEADERBOARD_DB_HOST: db
       LEADERBOARD_DB_PORT: 3306
       LEADERBOARD_DB_USER: leaderboard
       LEADERBOARD_DB_PASSWORD: AVeryComplicatedPassword
       LEADERBOARD_DB_NAME: leaderboard
+    networks:
+      leaderboard_network:
+        aliases:
+          - leaderboard
 
 networks:
   leaderboard_network:
