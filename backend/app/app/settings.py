@@ -88,7 +88,7 @@ DATABASES = {
         "PORT": os.environ.get('LEADERBOARD_DB_PORT'),
         "NAME": os.environ.get('LEADERBOARD_DB_NAME'), 
         "USER": os.environ.get('LEADERBOARD_DB_USER'),
-        "PASSWORD": os.environ.get('LEADERBOARD_DB_PASSWORD')
+        "PASSWORD": os.environ.get('LEADERBOARD_DB_PASSWORD'),
     }            
 }
 
