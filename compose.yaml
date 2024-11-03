@@ -1,37 +1,16 @@
 version: "3.7"
-services:
-  db:
-    build: ./db
-    container_name: db
-    ports:
-      - 3306:3306
-    volumes:
-      - db_data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: AVeryComplicatedPassword
-      MYSQL_DATABASE: leaderboard
-      MYSQL_USER: leaderboard
-      MYSQL_PASSWORD: AVeryComplicatedPassword
-    networks:
-      leaderboard_network:
-        aliases:
-          - leaderboard
-  
+services: 
   backend: 
     build: ./backend
     container_name: backend
     ports:
       - 4001:4001
+    volumes:
+      - ./db:/app/db
     networks:
       leaderboard_network:
         aliases:
           - leaderboard
-    environment:
-      LEADERBOARD_DB_HOST: db
-      LEADERBOARD_DB_PORT: 3306
-      LEADERBOARD_DB_USER: leaderboard
-      LEADERBOARD_DB_PASSWORD: AVeryComplicatedPassword
-      LEADERBOARD_DB_NAME: leaderboard
 
 networks:
   leaderboard_network:
