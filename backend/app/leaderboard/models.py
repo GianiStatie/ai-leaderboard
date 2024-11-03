@@ -10,11 +10,11 @@ class Score(models.Model):
     team_id = models.ForeignKey(Teams, on_delete=models.CASCADE)
     best_time = models.FloatField(default=0.0)
     best_level = models.IntegerField(default=0)
-    metadata = models.TextField(default="{}")
+    metadata = models.TextField(default="")
 
 class ScoreHistory(models.Model):
     team_id = models.ForeignKey(Teams, on_delete=models.CASCADE)
     score_id = models.ForeignKey(Score, on_delete=models.CASCADE)
     time = models.FloatField(default=0.0)
     level = models.IntegerField(default=0)
-    metadata = models.TextField(default="{}")
+    metadata = models.TextField(default="")
